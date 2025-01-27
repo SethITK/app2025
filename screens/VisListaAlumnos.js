@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const VisListaAlumnos = () => {
+const VisListaAlumnos = (props) => {
   return (
     <View>
       <Text>VisListaAlumnos</Text>

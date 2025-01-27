@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const Home = (props) => {
+const VisIoT = (props) => {
   return (
     <View>
-      <Text>Home</Text>
+      <Text>VisIoT</Text>
     </View>
   )
 }
 
-export default Home
+export default VisIoT
 
 const styles = StyleSheet.create({})

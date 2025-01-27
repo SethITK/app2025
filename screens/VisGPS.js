@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const Home = (props) => {
+const VisGPS = (props) => {
   return (
     <View>
-      <Text>Home</Text>
+      <Text>VisGPS</Text>
     </View>
   )
 }
 
-export default Home
+export default VisGPS
 
 const styles = StyleSheet.create({})
