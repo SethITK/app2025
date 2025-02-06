@@ -10,7 +10,7 @@ import VisIoT from "./screens/VisIoT";
 import VisCalificaciones from "./screens/VisCalificaciones";
 import Login from "./screens/Login";
 import Entypo  from 'react-native-vector-icons/Entypo';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import VisAltaAlmno from "./screens/VisAltaAlmno";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -29,6 +29,12 @@ function MyStack(props) {
         component={MyDrawer}
         options={{
             headerShown:false,
+        }}
+      />
+      <Stack.Screen
+        name="VAAlumno"
+        component={VisAltaAlmno}
+        options={{presentation:"modal",title:"Registrar Alumno"
         }}
       />
     </Stack.Navigator>
@@ -65,17 +71,23 @@ function MyDrawer(props) {
             <Drawer.Screen
         name="VC"
         component={VisCalificaciones}
-        options={{ title: "Calificaciones" }}
+        options={{ title: "Calificaciones",drawerIcon: config => <Entypo
+          size={23}
+          name= "bookmarks"/> }}
       />
             <Drawer.Screen
         name="VIT"
         component={VisIoT}
-        options={{ title: "IoT" }}
+        options={{ title: "IoT",drawerIcon: config => <Entypo
+          size={23}
+          name= "cloud"/> }}
       />
             <Drawer.Screen
         name="VGPS"
         component={VisGPS}
-        options={{ title: "GPS" }}
+        options={{ title: "GPS",drawerIcon: config => <Entypo
+          size={23}
+          name= "location"/> }}
       />
     </Drawer.Navigator>
   );

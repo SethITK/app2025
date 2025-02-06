@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "946970536431",
+    "firebase_url": "https://calificaciones2025-663f5-default-rtdb.firebaseio.com",
+    "project_id": "calificaciones2025-663f5",
+    "storage_bucket": "calificaciones2025-663f5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946970536431:android:a8b98adb939cf4aca12e1a",
+        "android_client_info": {
+          "package_name": "com.oliver_andres.calificaciones"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzzF_GvjRxrtO4w-8xi8xhbWTUrKgzcS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
