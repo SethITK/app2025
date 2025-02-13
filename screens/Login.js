@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, ActivityIndicator } from 'react-native';
-import { auth } from '../Control/Firebase.js'; // Asegúrate de que la ruta sea correcta
+import { auth } from '../Control/Firebase.js';
 import { Fontisto } from '@expo/vector-icons';
 
 const VisLogin = (props) => {
@@ -10,15 +10,13 @@ const VisLogin = (props) => {
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState('');
 
-  // Escucha cambios en el estado de autenticación
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        props.navigation.navigate('Drawer'); // Navega a la pantalla "Drawer" si el usuario está autenticado
+        props.navigation.navigate('Drawer');
       }
     });
 
-    // Limpia la suscripción al desmontar el componente
     return unsubscribe;
   }, []);
 
