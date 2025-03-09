@@ -11,6 +11,7 @@ import VisCalificaciones from "./screens/VisCalificaciones";
 import Login from "./screens/Login";
 import Entypo  from 'react-native-vector-icons/Entypo';
 import VisAltaAlmno from "./screens/VisAltaAlmno";
+import VisModificarAlumno from "./screens/VisModificarAlumno";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -35,6 +36,12 @@ function MyStack(props) {
         name="VAAlumno"
         component={VisAltaAlmno}
         options={{presentation:"modal",title:"Registrar Alumno"
+        }}
+      />
+          <Stack.Screen
+        name="VEAlumno"
+        component={VisModificarAlumno}
+        options={{presentation:"modal",title:"Modificar Alumno"
         }}
       />
     </Stack.Navigator>
