@@ -29,8 +29,11 @@ const VisListaAlumnos = (props) => {
   };
 
   useEffect(() => {
-    mostrarAlumnos();
-  }, []);
+    const refresh = props.navigation.addListener('focus',async()=>{
+      mostrarAlumnos();
+    },[]);
+    return refresh;
+  }, [props]);
 
   return (
     <ScrollView>
