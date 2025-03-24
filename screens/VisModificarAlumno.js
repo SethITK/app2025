@@ -80,9 +80,10 @@ const VisModificarAlumno = (props) => {
           aluTel: data.aluTel,
           aluFNac: data.aluFNac,
         });
+
         setCarrera({ aluCarrera: data.aluCarrera });
         setSexo(data.aluSexo);
-        setDate( (data.aluFNac));
+        setDate((data.aluFNac));
       }
     } catch (err) {
       alert(err.message);

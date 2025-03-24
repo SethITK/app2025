@@ -13,17 +13,29 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.oliver_andres.calificaciones"
+      "package": "com.oliver_andres.calificaciones",
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "52019975-05b3-40d5-9563-434c9f98c73c"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/52019975-05b3-40d5-9563-434c9f98c73c"
     }
   }
 }
