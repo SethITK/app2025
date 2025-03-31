@@ -13,6 +13,8 @@ import Entypo  from 'react-native-vector-icons/Entypo';
 import VisAltaAlmno from "./screens/VisAltaAlmno";
 import VisModificarAlumno from "./screens/VisModificarAlumno";
 import VisAltaMaterias from "./screens/VisAltaMaterias";
+import VisModificarMaterias from "./screens/VisModificarMaterias";
+import VisMapa from "./screens/VisMapa";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -49,6 +51,18 @@ function MyStack(props) {
         name="VAMateria"
         component={VisAltaMaterias}
         options={{presentation:"modal",title:"Registrar Materia"
+        }}
+      />
+      <Stack.Screen
+        name="VEMateria"
+        component={VisModificarMaterias}
+        options={{presentation:"modal",title:"Modificar Materia"
+        }}
+      />
+      <Stack.Screen
+        name="VMapa"
+        component={VisMapa}
+        options={{presentation:"modal",title:"Mapa"
         }}
       />
     </Stack.Navigator>
@@ -103,6 +117,7 @@ function MyDrawer(props) {
           size={23}
           name= "location"/> }}
       />
+      
     </Drawer.Navigator>
   );
 }

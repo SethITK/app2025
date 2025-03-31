@@ -1,73 +1,119 @@
-import { StyleSheet, Text, TouchableOpacity, View, ScrollView, TextInput } from 'react-native'
-import React, { useState } from 'react'
+import { StyleSheet, Text, TouchableOpacity, View, ScrollView, TextInput } from 'react-native';
+import React, { useState } from 'react';
 
-const VisAltaMaterias = () => {
+const VisAltaMaterias = (props) => {
   const [materia, setMateria] = useState({
-    matClave:"",
-    matDescripcion:"",
-    matPlan:"",
-    matCreditos:"",
-    matCarrera:""
-  })
+    matClave: "",
+    matDescripcion: "",
+    matPlan: "",
+    matCreditos: "",
+    matCarrera: ""
+  });
 
   const manejadorDeTextos = (campo, valor) => {
     setMateria({ ...materia, [campo]: valor });
   };
 
   const agregarMateria = async () => {
-  if(materia.matClave === "" || materia.matDescripcion === "" || materia.matPlan === "" || materia.matCreditos === "" || materia.matCarrera === ""){
-    alert("Favor de llenar todos los datos");
-  }else{
+    if(Object.values(materia).some(campo => campo === "")) {
+      alert("Todos los campos son obligatorios");
+      return;
+    }
+
     try {
       await conexion.collection("tblMaterias").add({
-        matClave: materia.matClave,
-        matDescripcion: materia.matDescripcion,
-        matPlan: materia.matPlan,
-        matCreditos: materia.matCreditos,
-        matCarrera: materia.matCarrera
+        ...materia,
+        matCreditos: Number(materia.matCreditos)
       });
-      alert("Materia agregada");
+      
+      alert("Materia registrada exitosamente");
+      setMateria({
+        matClave: "",
+        matDescripcion: "",
+        matPlan: "",
+        matCreditos: "",
+        matCarrera: ""
+      });
       props.navigation.goBack();
-    }catch(err){
-      alert(err.message);
+    } catch(err) {
+      alert("Error al guardar: " + err.message);
     }
-  }
   };
 
   return (
-    <ScrollView>
-      <View>
-        <View>
-          <TextInput 
-          placeholder='Clave de materia'
+    <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.formGroup}>
+        <TextInput 
+          style={styles.input}
+          placeholder="Clave de materia"
+          value={materia.matClave}
           onChangeText={(Value) => manejadorDeTextos("matClave", Value)}
-          />
-          <TextInput 
-          placeholder='descripcion'
+        />
+        <TextInput 
+          style={styles.input}
+          placeholder="Descripción"
+          value={materia.matDescripcion}
           onChangeText={(Value) => manejadorDeTextos("matDescripcion", Value)}
-          />
-          <TextInput 
-          placeholder='Plan'
+        />
+        <TextInput 
+          style={styles.input}
+          placeholder="Plan de estudios"
+          value={materia.matPlan}
           onChangeText={(Value) => manejadorDeTextos("matPlan", Value)}
-          />
-          <TextInput 
-          placeholder='Creditos'
+        />
+        <TextInput 
+          style={styles.input}
+          placeholder="Créditos"
+          value={materia.matCreditos}
           onChangeText={(Value) => manejadorDeTextos("matCreditos", Value)}
-          />
-          <TextInput 
-          placeholder='Carrera'
+          keyboardType="numeric"
+        />
+        <TextInput 
+          style={styles.input}
+          placeholder="Carrera"
+          value={materia.matCarrera}
           onChangeText={(Value) => manejadorDeTextos("matCarrera", Value)}
-          />
-        </View>
-        <TouchableOpacity
-        onPress={() => agregarMateria()}>
-          <Text>Agregar materia</Text>
-        </TouchableOpacity>
+        />
       </View>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={agregarMateria}
+      >
+        <Text style={styles.buttonText}>Guardar Materia</Text>
+      </TouchableOpacity>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default VisAltaMaterias
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    padding: 20,
+  },
+  formGroup: {
+    marginBottom: 20,
+  },
+  input: {
+    height: 50,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    marginBottom: 15,
+    paddingHorizontal: 15,
+    borderRadius: 8,
+    fontSize: 16,
+  },
+  button: {
+    backgroundColor: '#2196F3',
+    padding: 15,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+});
 
-const styles = StyleSheet.create({})
+export default VisAltaMaterias;
